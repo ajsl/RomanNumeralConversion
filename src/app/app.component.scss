@@ -1,12 +1,16 @@
 .main {
   height: 140vh;
   padding-top: 10vh;
-  background-image: url("../assets/cutout-781395_1920.png");
+  background-image: url("../assets/cutout-781395_1280.png");
   background-color: lightgrey;
-  background-position: center bottom;
+  background-position: center;
+  background-size: cover;
+  // background-repeat: repeat-x;
   margin: -10px 10% -10px 10%;
 
-
+  @media screen and (max-width: 400px) {
+    background-image: url("../assets/cutout-781395_640.png");
+  }
   @media only screen and (max-width: 600px){
     margin: -10px 0 -10px 0;
   }
