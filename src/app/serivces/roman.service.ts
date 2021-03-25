@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { IValues } from '../models/values';
 
 @Injectable({
   providedIn: 'root',
@@ -6,8 +7,9 @@ import { Injectable } from '@angular/core';
 export class RomanService {
   constructor() {}
 
-  romanToNumber(numeral: string): number {
+  romanToNumber(values: IValues): number {
     let conversion = 0;
+    const numeral = values.numeral;
     const numeralArray = numeral.toUpperCase().split('');
     console.log(numeralArray);
 
@@ -40,6 +42,29 @@ export class RomanService {
 
     return conversion;
   }
+
+  numberToRoman(values: IValues): string {
+    let numberValue = values.number;
+    let numerals = '';
+    const romanNumberList = {M: 1000, CM: 900, D: 500, CD: 400, C: 100, XC: 90, L: 50, XV: 40, X: 10, IX: 9, V: 5, IV: 4, I: 1};
+
+    let current: number;
+
+    // tslint:disable-next-line: forin
+    for (const key in romanNumberList){
+      current = Math.floor(numberValue / romanNumberList[key]);
+      if (current >= 0){
+        for (let i = 0; i < current; i++ ){
+          numerals += key;
+        }
+      }
+      numberValue = numberValue % romanNumberList[key];
+    }
+
+    return numerals;
+
+  }
+
 
   numberals(charecter: string): number {
     let returnNumber: number;
