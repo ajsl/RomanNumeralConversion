@@ -1,0 +1,25 @@
+.heading {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 75px;
+  h1 {
+    font-size: 75px;
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    margin-bottom: 20px;
+    h1 {
+      font-size: 40px;
+      margin: 0 0 40px 0;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    margin-bottom: 10px;
+    h1 {
+      font-size: 35px;
+      margin: 0 0 20px 0;
+    }
+  }
+}

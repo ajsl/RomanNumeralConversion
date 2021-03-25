@@ -1,0 +1,67 @@
+<section class="container">
+  <form
+    class="form-container"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="numeralForm"
+  >
+    <label class="form-input">
+      Roman Numeral:
+      <input
+        id="numeral"
+        style="text-transform: uppercase"
+        (input)="onChange($event.target.value)"
+        type="text"
+        formControlName="numeral"
+      />
+    </label>
+    <div class="error-container">
+      <span
+        class="validation-error"
+        *ngIf="
+          numeralForm.get('numeral').invalid &&
+          numeralForm.get('numeral').touched &&
+          numeralForm.get('numeral').errors['pattern']
+        "
+      >
+        Not a valid roman numeral!
+      </span>
+    </div>
+
+    <label class="form-input">
+      Number:
+      <input
+        id="number"
+        (input)="onChange($event.target.value)"
+        type="number"
+        formControlName="number"
+      />
+    </label>
+    <div class="error-container">
+      <span
+        class="validation-error"
+        *ngIf="
+          numeralForm.get('number').invalid && numeralForm.get('number').touched
+        "
+      >
+        Number must be between 1 and 3999!
+      </span>
+    </div>
+
+    <button class="form-btn" [disabled]="numeralForm.invalid" type="submit">
+      Convert
+    </button>
+  </form>
+
+  <div class="result-container">
+    <div class="result" *ngIf="this.numeralConversion">
+      <h1 class="roman-font">
+        {{ this.numeralInput.toUpperCase() }}
+      </h1>
+      <h1>= {{ this.numeralConversion }}</h1>
+    </div>
+    <div class="result" *ngIf="this.numberConversion">
+      <h1>{{ this.numberInput }} =</h1>
+      <h1 class="roman-font">{{ this.numberConversion }}</h1>
+    </div>
+  </div>
+</section>

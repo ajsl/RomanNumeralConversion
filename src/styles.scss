@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  background-color: #fff;
+  font-family: "Mulish", sans-serif;
+  @media only screen and (max-width: 600px) {
+    margin: 0;
+  }
+}
+
+button {
+  background-color: rgb(64, 64, 237);
+  border-radius: 2px;
+  height: 3em;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  &:disabled {
+    background-color: rgba(64, 64, 237, 0.337);
+  }
+}
+
+label {
+  font-size: 18px;
+}
+
+input {
+  font-size: 120%;
+  background-color: #f2f2f2;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+
+  &.ng-invalid {
+    background-color: rgba(238, 97, 97, 0.502);
+    border: 2px solid red;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+h1 {
+  font-size: xx-large;
+  display: inline;
+}
